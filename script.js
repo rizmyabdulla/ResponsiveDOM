@@ -21,3 +21,11 @@ if (ResponsiveDOM.isMobile()) {
 } else if (ResponsiveDOM.isTV()) {
   console.log("Its TV");
 }
+
+const btn = ResponsiveDOM.createComponent(".button");
+
+btn.options.darkmode();
+
+btn.element.addEventListener("click", () => {
+  btn.options.lightmode();
+});

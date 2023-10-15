@@ -1,5 +1,6 @@
 const ResponsiveDOM = {
   mediaQueryListeners: [],
+  components: [],
 
   /**
    * @param {string[]} queries
@@ -86,6 +87,39 @@ const ResponsiveDOM = {
   isTV() {
     const tvMediaQuery = window.matchMedia("(min-width: 1366px)");
     return tvMediaQuery.matches;
+  },
+
+  /**
+   *
+   * @param {string} elementSelector - selector for the element
+   * @param {object} options - options for the component
+   *
+   * @returns {object} component
+   *
+   * @note Creates a new component
+   */
+
+  createComponent(elementSelector, options) {
+    const Element = document.querySelector(elementSelector);
+    if (!Element) {
+      throw new Error(`Element with selector '${elementSelector}' not found.`);
+    }
+
+    const component = {
+      element: Element,
+      options: options || {
+        darkmode: () => {
+          Element.classList.add("rd-dark");
+        },
+        lightmode: () => {
+          Element.classList.remove("rd-dark");
+        },
+      },
+    };
+
+    this.components.push(component);
+
+    return component;
   },
 };
 
