@@ -11,3 +11,13 @@ ResponsiveDOM.onMediaQueryChange(
     },
   ]
 );
+
+if (ResponsiveDOM.isMobile()) {
+  console.log("Its Mobile");
+} else if (ResponsiveDOM.isTablet()) {
+  console.log("Its Tablet");
+} else if (ResponsiveDOM.isDesktop()) {
+  console.log("Its Desktop");
+} else if (ResponsiveDOM.isTV()) {
+  console.log("Its TV");
+}
