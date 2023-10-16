@@ -90,6 +90,7 @@ const myComponent = ResponsiveDOM.createComponent("#myElement", {
 });
 ```
 
+
 ## API Reference
 
 ### ResponsiveDOM Namespace
